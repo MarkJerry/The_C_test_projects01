@@ -6,7 +6,7 @@ int DivFunc(int x, int y)
 	if(y==0)
 	{
 	cout << "%n exception happenning!!%n"<<endl;
-	throw "excption has occurred!";
+	throw y;
 	cout << "%n exception!!!%n"<<endl;}
 	return x/y;
 
