@@ -1,13 +1,15 @@
+#include <stdio.h>
 #include <iostream>
-#include <string>
+#include <string.h>
 #include "CStu.h"
+using namespace std;
 void CStu::Show()
 {
 	cout<<"NO.   :"<<m_NO<<endl;
 	cout<<"Name  :"<<m_Name<<endl;
 	cout<<"Gender:"<<m_Sex<<endl;
 	cout<<"Age   :"<<m_Age<<endl;
-	cout<<"CV    :"<<m_Rem<<endl;
+	cout<<"CV    :"<<m_Rem<<"\r\n"<<endl;
 }
 unsigned int CStu::GetRemBytes()
 {
@@ -97,9 +99,60 @@ char *CStu::GetSex()
 
 }
 
+CStu::CStu()
+{
+	m_NO[0]=0;
+	m_Name[0]=0;
+	m_Age=18;
+	strcpy(m_Sex, "male");
+	m_Rem=NULL;
+	m_RemBytes=0;
+
+}
+CStu::CStu( char *NO,char *Name, unsigned short Age,char *Sex,char *Rem)
+{
+	if(!SetNO(NO))
+		m_NO[0]=0;
+	if(!SetName(Name))
+		m_Name[0]=0;
+	if(!SetAge(Age))
+		m_Age=18;
+	if(!SetSex(Sex))
+		strcpy(m_Sex, "male");
+	m_Rem = NULL;
+	m_RemBytes = 0;
+	if(Rem != NULL)
+		SetRem(Rem);
+}
+int main()
+{
+
+	CStu s1;
+	CStu s2("2012050401", "zhangsan");
+	CStu s3("2012050402", "lisi",17);
+	CStu s4("2012050403", "wangli", 18, "female");
+	CStu s5("2012050404", "zhangli", 19, "female", "speciality: piano");
+	s1.Show(); s2.Show(); s3.Show(); s4.Show();s5.Show();
+
+	CStu *ps1=new CStu();
+	CStu *ps2=new CStu("2012050401", "zhangsan");
+	CStu *ps3=new CStu("2012050402", "lisi",17);
+	CStu *ps4=new CStu("2012050403", "wangli", 18, "female");
+	CStu *ps5=new CStu("2012050404", "zhangli", 19, "female", "speciality: piano");
+	ps1->Show();
+	ps2->Show();
+	ps3->Show();
+	ps4->Show();
+	ps5->Show();
+	return 0;
+
+}
 
 
 
+
+
+ 
 
 
 

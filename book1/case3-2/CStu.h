@@ -3,7 +3,7 @@
 class CStu
 {
 protected:
-	char m_No[11];
+	char m_NO[11];
 	char m_Name[11];
 	unsigned short m_Age;
 	char m_Sex[3];
@@ -11,7 +11,9 @@ protected:
 	unsigned int m_RemBytes;
 
 public:
-	void show();
+	CStu();
+	CStu(char *No,char *Name, unsigned short Age=18, char *Sex="male", char *Rem=0);
+	void Show();
 	unsigned int GetRemBytes();
 	bool SetNO(char *NO);
 	char *GetNO();
@@ -21,15 +23,9 @@ public:
 	unsigned short GetAge();
 	bool SetRem(char *Rem);
 	char *GetRem();
-	bool SexSex(char *sex);
+	bool SetSex(char *sex);
 	char *GetSex();
 };
 #endif
 
 
-
-
-
-
-
-}
