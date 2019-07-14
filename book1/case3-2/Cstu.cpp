@@ -5,11 +5,19 @@
 using namespace std;
 void CStu::Show()
 {
-	cout<<"NO.   :"<<m_NO<<endl;
-	cout<<"Name  :"<<m_Name<<endl;
-	cout<<"Gender:"<<m_Sex<<endl;
-	cout<<"Age   :"<<m_Age<<endl;
-	cout<<"CV    :"<<m_Rem<<"\r\n"<<endl;
+	if(m_NO !=NULL)
+		cout<<"NO.   :"<<m_NO<<endl;
+	if(m_Name != NULL)
+		cout<<"Name  :"<<m_Name<<endl;
+	if(m_Sex != NULL)
+		cout<<"Gender:"<<m_Sex<<endl;
+	if(m_Age != 0)
+		cout<<"Age   :"<<m_Age<<endl;
+	if(m_Rem != NULL)
+		cout<<"CV    :"<<m_Rem<<endl;
+	else
+		cout<<"CV    :NULL"<<endl;
+	cout<< "\r\n"<<endl;
 }
 unsigned int CStu::GetRemBytes()
 {
@@ -103,9 +111,9 @@ CStu::CStu()
 {
 	m_NO[0]=0;
 	m_Name[0]=0;
-	m_Age=18;
-	strcpy(m_Sex, "male");
-	m_Rem=NULL;
+	m_Age=0;
+	strcpy(m_Sex, "unknown");
+	m_Rem = NULL;
 	m_RemBytes=0;
 
 }
@@ -128,17 +136,21 @@ int main()
 {
 
 	CStu s1;
-	CStu s2("2012050401", "zhangsan");
-	CStu s3("2012050402", "lisi",17);
-	CStu s4("2012050403", "wangli", 18, "female");
-	CStu s5("2012050404", "zhangli", 19, "female", "speciality: piano");
-	s1.Show(); s2.Show(); s3.Show(); s4.Show();s5.Show();
-
+	CStu s2((char *)"2012050401", (char *)"zhangsan");
+	CStu s3((char *)"2012050402", (char *)"lisi",17);
+	CStu s4((char *)"2012050403", (char *)"wangli", 18,(char *) "female");
+	CStu s5((char *)"2012050404", (char *)"zhangli", 19, (char *)"female", (char *)"speciality->piano");
+	s1.Show();
+	s2.Show(); 
+	s3.Show(); 
+	s4.Show();
+	s5.Show();
+	
 	CStu *ps1=new CStu();
-	CStu *ps2=new CStu("2012050401", "zhangsan");
-	CStu *ps3=new CStu("2012050402", "lisi",17);
-	CStu *ps4=new CStu("2012050403", "wangli", 18, "female");
-	CStu *ps5=new CStu("2012050404", "zhangli", 19, "female", "speciality: piano");
+	CStu *ps2=new CStu((char *)"2012050401", (char *)"zhangsan");
+	CStu *ps3=new CStu((char *)"2012050402",(char *) "lisi",17);
+	CStu *ps4=new CStu((char *)"2012050403",(char *) "wangli", 18,(char *) "female");
+	CStu *ps5=new CStu((char *)"2012050404",(char *)"zhangli", 19, (char *)"female", (char *)"speciality-> piano");
 	ps1->Show();
 	ps2->Show();
 	ps3->Show();
