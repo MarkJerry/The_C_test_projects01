@@ -3,6 +3,31 @@
 #include <string.h>
 #include "CStu.h"
 using namespace std;
+
+CStu::~CStu()
+{
+	if(m_Rem != NULL)
+		delete []m_Rem;
+}
+CStu::CStu(const CStu &s)
+{
+	strcpy(m_NO, s.m_NO);
+	strcpy(m_Name, s.m_Name);
+	strcpy(m_Sex, s.m_Sex);
+	m_Age = s.m_Age;
+	if(s.m_Rem != NULL)
+	{
+		m_RemBytes= s.m_RemBytes;
+		m_Rem = new char[m_RemBytes +1];
+		strcpy(m_Rem, s.m_Rem);
+	}
+	else
+	{
+		m_Rem=NULL;
+		m_RemBytes=0;
+	}
+
+}
 void CStu::Show()
 {
 	if(m_NO !=NULL)

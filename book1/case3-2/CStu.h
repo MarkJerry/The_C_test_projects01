@@ -1,5 +1,6 @@
 #ifndef __CSTU_H__
 #define __CSTU_H__
+ 
 class CStu
 {
 protected:
@@ -11,7 +12,9 @@ protected:
 	unsigned int m_RemBytes;
 
 public:
+	~CStu();
 	CStu();
+	CStu(const CStu &s);
 	CStu(char *No, char *Name, unsigned short Age=18, char *Sex=(char *)"male", char *Rem=0);
 	void Show();
 	unsigned int GetRemBytes();
